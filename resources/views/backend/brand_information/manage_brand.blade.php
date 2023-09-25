@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -23,7 +23,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Brand Manage
-								<a href="{{url('brand_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Brand</a>
+								<a href="{{ route('brand_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Brand</a>
 						</div>
 					</div>
 
@@ -57,9 +57,9 @@
 									<td>{{$brandinfo->brand_name}}</td>
 									<td>
 											@if ($brandinfo->status==1)
-												<a href="{{url('brandinactive/'.$brandinfo->id)}} " class="btn btn-success">Active</a>
+												<a href="{{ route('brandinactive',$brandinfo->id)}} " class="btn btn-success">Active</a>
 											@else
-												<a href="{{url('brandactive/'.$brandinfo->id)}}" class="btn btn-danger">Inactive</a>
+												<a href="{{ route('brandactive',$brandinfo->id)}}" class="btn btn-danger">Inactive</a>
 											@endif
 									</td>
 
@@ -69,16 +69,16 @@
 									<td>
 
 										@if($brandinfo->brand_image)
-										<img src="{{($brandinfo->brand_image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
+										<img src="{{ asset($brandinfo->brand_image) }}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
 										@else
 										No Image
 										@endif
 									</td>
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{url('delete_brand/'.$brandinfo->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('Data Delete Sure ..')"><i class="ti-trash"></i></a>
+											<a href="{{ route('delete_brand',$brandinfo->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('Data Delete Sure ..')"><i class="ti-trash"></i></a>
 
-											<a href="{{url('edit_brand/'.$brandinfo->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{ route('edit_brand',$brandinfo->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 											</div>
 										</td>

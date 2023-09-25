@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -10,7 +10,7 @@
 			<li class="breadcrumb-item active">Privacy & Police</li>
 		</ol>
 	</div>
-	<form method="POST" action="{{url('update_policy/'.$privacy->id)}}">
+	<form method="POST" action="{{ route('update_policy',$privacy->id)}}">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">

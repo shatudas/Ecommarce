@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -12,7 +12,7 @@
 		</ol>
 	</div>
 
-	<form method="post"  enctype="multipart/form-data" action="{{url('update_setting/'.$setting->id)}}">
+	<form method="post"  enctype="multipart/form-data" action="{{ route('update_setting',$setting->id)}}">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">
@@ -67,7 +67,7 @@
 								<input type="file" name="favicon"  aria-describedby="emailHelp"  style="width:30%; float:left; clear:right;">
 
 								@if($setting->favicon)
-								<img src="{{url($setting->favicon)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+								<img src="{{ asset($setting->favicon)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
 								@endif	
 								{{-- <input type="hidden" name="old_fav" value="{{$setting->favicon}}"> --}}
 							</div>
@@ -76,7 +76,7 @@
 								<label>Image</label><br>
 								<input type="file" name="setting_image" id="profile-img"  aria-describedby="emailHelp" style="width:30%; float:left; clear:right;">
 								@if($setting->setting_image)
-								<img src="{{url($setting->setting_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+								<img src="{{ asset($setting->setting_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
 								@endif
 							</div>
 

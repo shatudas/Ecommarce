@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -9,7 +9,7 @@
 			<li class="breadcrumb-item active">Term & Condition</li>
 		</ol>
 	</div>
-	<form method="post" action="{{url('update_tram/'.$tram->id)}}" enctype="multipart/form-dat">
+	<form method="post" action="{{ route('update_tram',$tram->id)}}" enctype="multipart/form-dat">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">

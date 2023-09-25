@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -10,7 +10,7 @@
 			<li class="breadcrumb-item active">About Information</li>
 		</ol>
 	</div>
-	<form method="post" action="{{url('update_about/'.$about->id)}}" enctype="multipart/form-data">
+	<form method="post" action="{{ route('update_about',$about->id)}}" enctype="multipart/form-data">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">
@@ -25,7 +25,7 @@
 
 							<div class="form-group">
 								<label>Detalis</label>
-								<textarea type="text" name="details" id="aboutsummernote" class="form-control  @error('details') is-invalid @enderror">{!!$about->details!!}</textarea>
+								<textarea type="text" name="details" id="aboutsummernote" class="form-control  @error('details') is-invalid @enderror">{!! $about->details !!}</textarea>
 								@error('details')
 								<span style="color:red;">etalis Is Empty</span>
 								@enderror	

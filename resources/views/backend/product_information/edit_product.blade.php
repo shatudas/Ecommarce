@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -10,7 +10,7 @@
 		</ol>
 	</div>
 
-	<form method="post" enctype="multipart/form-data" action="{{url('updata_product/'.$data->id)}}">
+	<form method="post" enctype="multipart/form-data" action="{{ route('updata_product',$data->id)}}">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">
@@ -19,13 +19,11 @@
 						<div class="card-header">
 							<div class="card-title">
 								Product Information
-								<a href="{{url('manage_product')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Product</a>
+								<a href="{{route('manage_product')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Product</a>
 
 							</div>
 						</div>
 						<div class="card-body">
-
-							
 
 							<div class="row">
 								<div class="col-lg-6 col-sm-12">
@@ -207,7 +205,7 @@
 
 										@if($data->product_image)
 
-										<img  src="{{url($data->product_image)}}" id="profile-img-tag" style="height:80px; width:80px; border:none;" >
+										<img  src="{{asset($data->product_image)}}" id="profile-img-tag" style="height:80px; width:80px; border:none;" >
 										@endif
 										<br>
 										<input type="hidden" name="old_image" value="{{$data->product_image}}" class="form-control">

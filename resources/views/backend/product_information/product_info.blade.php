@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -13,7 +13,7 @@
 	</div>
 
 
- <form method="post" enctype="multipart/form-data" action="{{url('insert_product')}}">
+ <form method="post" enctype="multipart/form-data" action="{{ route('insert_product')}}">
   @csrf
   <div class="container-fluid">
    <div class="row">
@@ -22,7 +22,7 @@
       <div class="card-header">
        <div class="card-title">
         Product Information
-        <a href="{{url('manage_product')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Product</a>
+        <a href="{{ route('manage_product')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Product</a>
 
        </div>
       </div>
@@ -117,9 +117,6 @@
           <input type="number" name="Discount_price" class="form-control"  aria-describedby="emailHelp" placeholder="Enter discount price">	
          </div>
 
-
-         
-
          <div class="form-group">
           <label>Size</label>
           <input type="text" data-role="tagsinput" placeholder="Product Size" name="size">
@@ -138,9 +135,6 @@
           <span style="color:red;">quantity Is Empty</span>
           @enderror 
          </div>
-
-
-
 
 
         </div>
@@ -175,12 +169,6 @@
           <span style="color:red;">Stock Status Is Empty</span>
           @enderror  
          </div>
-
-
-
-
-         
-
 
 
          <div class="form-group">

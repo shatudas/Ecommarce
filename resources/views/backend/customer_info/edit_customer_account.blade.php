@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -13,7 +13,7 @@
 		</ol>
 	</div>
 
-	<form method="POST" action="{{url('Customer_update/'.$edit->id)}}" enctype="multipart/form-data">
+	<form method="POST" action="{{route('Customer_update',$edit->id)}}" enctype="multipart/form-data">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">
@@ -22,7 +22,7 @@
 						<div class="card-header">
 							<div class="card-title">
 								Edit Item Information
-								<a href="{{url('User_Info')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Customer Info</a>
+								<a href="{{ route('User_Info') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Customer Info</a>
 
 							</div>
 						</div>
@@ -65,15 +65,13 @@
 									<input type="file" name="image" id="profile-img"  aria-describedby="emailHelp" style="width:30%; float:left; clear:right;">
 
 									@if(isset($edit->image))
-									<img src="{{url($edit->image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+									<img src="{{ asset($edit->image) }}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
 									@endif
 									<input type="hidden" name="old_image" class="form-control" value="{{$edit->image}}"  aria-describedby="emailHelp" >	
 								</div>
 
 								<div class="form-group mt-4">
 									<button type="submit" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#3498DB; color:#fff;"  onclick="return confirm('Data Update Sure ....')">Update</button>
-
-
 
 								</div>
 

@@ -49,7 +49,7 @@ class HomeController extends Controller
      }
      else
      {
-      return view('backend.dashboard');
+      return view('backend.layouts.dashboard');
      }
      
     }

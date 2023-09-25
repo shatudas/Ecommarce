@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -20,12 +20,12 @@
 					<div class="card-header">
 						<div class="card-title">
 							Brand Information
-							<a href="{{url('manage_brand')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Brand</a>
+							<a href="{{ route('manage_brand') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Brand</a>
 
 						</div>
 					</div>
 					<div class="card-body">
-						<form method="post" action="{{url('update_brand/'.$edit->id)}}" enctype="multipart/form-data">
+						<form method="post" action="{{ asset('update_brand',$edit->id)}}" enctype="multipart/form-data">
 							@csrf 
 
 							<div class="form-group">
@@ -70,15 +70,13 @@
 								<label>Brand Image</label><br>
 								<input type="file" name="brand_image" id="profile-img"  aria-describedby="emailHelp" style="width:30%; float:left; clear:right;">
 								@if($edit->brand_image)
-								<img    src="{{url($edit->brand_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+								<img src="{{ asset($edit->brand_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
 								@endif
-								<input type="hidden" name="old_image" value="{{$edit->brand_image}}" class="form-control">
+								<input type="hidden" name="old_image" value="{{ $edit->brand_image }}" class="form-control">
 							</div>
 
 							<div class="form-group mt-4">
 								<button type="submit" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#3498DB; color:#fff;" onclick="return confirm('Data Update update..)">Update</button>
-
-								{{-- <button type="reset" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#58D68D; color:#fff; margin-left:6px;">Refresh</button> --}}
 
 							</div>
 

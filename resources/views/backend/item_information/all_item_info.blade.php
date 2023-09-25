@@ -27,7 +27,7 @@
 						<thead>
 							<tr>
 								<td colspan="2" style="border:0px;">
-									<center><img src="{{url($logo->setting_image)}}" class="img-fluid" style="width:100px;" align="center"></center>
+									<center><img src="{{ asset($logo->setting_image) }}" class="img-fluid" style="width:100px;" align="center"></center>
 								</td>
 								<td colspan="4" class="" style="border:0px;">
 									<h3 style="margin-left:15%;">View All Item Information</h3>
@@ -62,7 +62,7 @@
 									@endif
 								</td>
 								<td  align="center">
-									<img src="{{url($item_data->item_image)}}" class="img-fluid" style="width:80px;" >
+									<img src="{{ asset($item_data->item_image)}}" class="img-fluid" style="width:80px;" >
 								</td>
 								<td>{{ $item_data->name}}(#{{$item_data->admin_id}})</td>
 							</tr>

@@ -27,7 +27,7 @@
 						<thead>
 							<tr>
 								<td colspan="3" style="border:0px;">
-									<img src="{{url($logo->setting_image)}}" class="img-fluid" style="width:100px; margin-left:8%;" align="center">
+									<img src="{{ asset($logo->setting_image)}}" class="img-fluid" style="width:100px; margin-left:8%;" align="center">
 								</td>
 								<td colspan="4" class="" style="border:0px;">
 									<h3>View All Sub Category Information</h3>
@@ -63,7 +63,7 @@
 									@endif
 								</td>
 								<td align="center">
-									<img src="{{url($sucate_data->subcategory_image)}}" class="img-fluid" style="width:80px;">
+									<img src="{{ asset($sucate_data->subcategory_image)}}" class="img-fluid" style="width:80px;">
 								</td>
 								<td>{{ $sucate_data->name}}(#{{$sucate_data->admin_id}})</td>
 							</tr>

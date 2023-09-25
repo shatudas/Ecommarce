@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -25,7 +25,7 @@
 					@foreach($adddata as $OrderData)
 					<tr>
 
-						<td title="view invoice" ><a href="{{url('invoice/'.$OrderData->id)}}" class="text-dark font-weight-bold" target="_blabk">{{$OrderData->id}}</a></td>
+						<td title="view invoice" ><a href="{{ asset('invoice',$OrderData->id)}}" class="text-dark font-weight-bold" target="_blabk">{{$OrderData->id}}</a></td>
 						<td >{{$OrderData->order_date}}</td>
 						<td>{{$OrderData->phone}}</td>
 						<td>{{$OrderData->prement_method}}</td>

@@ -37,8 +37,8 @@ class itemcontroller extends Controller
 		if ($newimage)
 		{
 			$image_name  = hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/itemimage/'.$image_name,80);
-			$data['item_image']='public/image/itemimage/'.$image_name;
+			Image::make($newimage)->save('image/itemimage/'.$image_name,80);
+			$data['item_image']='image/itemimage/'.$image_name;
 			DB::table('item_information')->insert($data);
 		}
 		else
@@ -125,8 +125,8 @@ class itemcontroller extends Controller
 			}
 
 			$image_one_name= hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/itemimage/'.$image_one_name,80);
-			$data['item_image']='public/image/itemimage/'.$image_one_name;
+			Image::make($newimage)->save('image/itemimage/'.$image_one_name,80);
+			$data['item_image']='image/itemimage/'.$image_one_name;
 			DB::table('item_information')->where('id',$edit)->update($data);
 		}
 

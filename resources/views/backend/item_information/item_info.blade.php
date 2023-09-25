@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -12,7 +12,7 @@
 		</ol>
 	</div>
 
-<form method="POST" action="{{url('item_insert')}}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('item_insert')}}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -21,7 +21,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Item Information
-							<a href="{{url('manage_item')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;" > View Item</a>
+							<a href="{{ route('manage_item')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;" > View Item</a>
 
 						</div>
 					</div>

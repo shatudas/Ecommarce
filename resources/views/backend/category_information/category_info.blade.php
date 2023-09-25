@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -13,7 +13,7 @@
 	</div>
 
 
-	<form method="POST" action="{{url('category_insert')}}" enctype="multipart/form-data">
+	<form method="POST" action="{{ route('category_insert') }}" enctype="multipart/form-data">
 		@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -22,7 +22,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Category Information
-							<a href="{{url('manage_category')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Category</a>
+							<a href="{{ route('manage_category') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Category</a>
 
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 							<div class="form-group">
 								<label>Category Image</label><br>
 								<input type="file" name="category_image" id="profile-img"  aria-describedby="emailHelp" style="width:30%; float:left; clear:right;">
-								<img    src="#" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+								<img src="#" id="profile-img-tag" width="80" height="80" style="margin-left:20px; border:1px solid #DFE0E1;">
 							</div>
 
 							<div class="form-group mt-4">

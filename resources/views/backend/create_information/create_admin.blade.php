@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -12,7 +12,7 @@
 		</ol>
 	</div>
 	<!--page title end-->
-<form method="POST" action="{{url('insert_admin')}}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('insert_admin') }}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -22,7 +22,7 @@
 						<div class="card-title">
 							Create Admin
 
-							<a href="{{url('manage_admin')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Admin</a>
+							<a href="{{ route('manage_admin') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Admin</a>
 
 						</div>
 					</div>

@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -58,9 +58,9 @@
 									<td>{{ $admindata->address }}</td>
 									<td>
 										@if ($admindata->status==1)
-										<a href="{{url('activeadmin/'.$admindata->id)}} " class="btn btn-success">Active</a>
+										<a href="{{ route('activeadmin',$admindata->id)}} " class="btn btn-success">Active</a>
 										@else
-										<a href="{{url('inactiveadmin/'.$admindata->id)}}" class="btn btn-danger">Inactive</a>
+										<a href="{{ route('inactiveadmin',$admindata->id)}}" class="btn btn-danger">Inactive</a>
 										@endif
 									</td>
 
@@ -69,21 +69,21 @@
 									$chack= DB::table('users')->where('id',$admindata->admin_id)->first();
 									@endphp
 
-									<td>---{{-- {{ $chack->name}} --}}</td>
+									<td></td>
 
 
 									<td>
 										@if($admindata->image)
-										<img src="{{url($admindata->image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
+										<img src="{{ asset($admindata->image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
 										@else
 										No Image
 										@endif
 									</td>
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{url('deleteadmin/'.$admindata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"  onclick="return confirm('Admin Delete Sure..')"><i class="ti-trash"></i></a>
+											<a href="{{ route('deleteadmin',$admindata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"  onclick="return confirm('Admin Delete Sure..')"><i class="ti-trash"></i></a>
 
-											<a href="{{url('editadmin/'.$admindata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{ route('editadmin',$admindata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 											</div>
 										</td>

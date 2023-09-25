@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -20,12 +20,12 @@
 					<div class="card-header">
 						<div class="card-title">
 							Brand Information
-							<a href="{{url('manage_brand')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Brand</a>
+							<a href="{{ route('manage_brand')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Brand</a>
 
 						</div>
 					</div>
 					<div class="card-body">
-						<form method="post" action="{{url('insert_brand')}}" enctype="multipart/form-data">
+						<form method="post" action="{{ route('insert_brand')}}" enctype="multipart/form-data">
 							@csrf
 
 							<div class="form-group">

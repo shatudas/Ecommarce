@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -9,7 +9,7 @@
 			<li class="breadcrumb-item active">How To Bay</li>
 		</ol>
 	</div>
-	<form method="post" action="{{url('update_how/'.$howTobay->id)}}">
+	<form method="post" action="{{ route('update_how',$howTobay->id)}}">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">

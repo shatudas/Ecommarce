@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -19,13 +19,13 @@
 					<div class="card-header">
 						<div class="card-title">
 							Manage Item
-							<a href="{{url('item_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Item</a>
+							<a href="{{ asset('item_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Item</a>
 						</div>
 					</div>
 
 					<div class="card-body" style="overflow-x:auto;">
 						<table id="example" class="display nowrap table table-bordered table-striped" cellspacing="0" style="width: 100%;">
-				{{-- 		<table id="example"  class="table table-bordered table-striped" cellspacing="0"> --}}
+				
 							<thead>
 								<tr><th>Show Sl</th>
 									<th>Sl</th>
@@ -60,16 +60,16 @@
 
 									<td>
 										@if ($data->status==1)
-										<a href="{{url('iteminactive/'.$data->id)}} " class="btn btn-success">Active</a>
+										<a href="{{ asset('iteminactive',$data->id)}} " class="btn btn-success">Active</a>
 										@else
-										<a href="{{url('itemactive/'.$data->id)}}" class="btn btn-danger">Inactive</a>
+										<a href="{{ asset('itemactive',$data->id)}}" class="btn btn-danger">Inactive</a>
 										@endif
 									</td>
 
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{url('deleteitem/'.$data->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
-											<a href="{{url('edititem/'.$data->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{ asset('deleteitem',$data->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
+											<a href="{{ asset('edititem',$data->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 											</div>
 										</td>

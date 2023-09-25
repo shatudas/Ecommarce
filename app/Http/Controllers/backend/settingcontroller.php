@@ -44,8 +44,8 @@ class settingcontroller extends Controller
 				unlink($oldimage->setting_image);
 			}
 			$image_one_name= hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/settingimage/'.$image_one_name,80);
-			$data['setting_image']='public/image/settingimage/'.$image_one_name;
+			Image::make($newimage)->save('image/settingimage/'.$image_one_name,80);
+			$data['setting_image']='image/settingimage/'.$image_one_name;
 			DB::table('setting_information')->where('id',$edit)->update($data);
 		}
 		else
@@ -61,8 +61,8 @@ class settingcontroller extends Controller
 			}
 
 			$image_one= hexdec(uniqid()).'.'.$favicon->getClientOriginalExtension();
-			Image::make($favicon)->save('public/image/settingimage/'.$image_one,80);
-			$data['favicon']='public/image/settingimage/'.$image_one;
+			Image::make($favicon)->save('image/settingimage/'.$image_one,80);
+			$data['favicon']='image/settingimage/'.$image_one;
 			DB::table('setting_information')->where('id',$edit)->update($data);
 		}
 		else{

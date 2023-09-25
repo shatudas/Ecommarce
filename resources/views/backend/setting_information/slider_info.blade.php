@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -11,7 +11,7 @@
 			<li class="breadcrumb-item active">Slider Information</li>
 		</ol>
 	</div>
-<form method="POST" action="{{url('Insert_slider')}}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('Insert_slider')}}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -20,7 +20,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Slider Information
-							<a href="{{url('manage_slider')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Slider</a>
+							<a href="{{ route('manage_slider')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Slider</a>
 
 						</div>
 					</div>

@@ -38,8 +38,8 @@ class slidercontroller extends Controller
 		if ($sliderimage)
 		{
 			$image_name= hexdec(uniqid()).'.'.$sliderimage->getClientOriginalExtension();
-			Image::make($sliderimage)->save('public/image/sliderimage/'.$image_name,80);
-			$data['slider_image']='public/image/sliderimage/'.$image_name;
+			Image::make($sliderimage)->save('image/sliderimage/'.$image_name,80);
+			$data['slider_image']='image/sliderimage/'.$image_name;
 			DB::table('slider_information')->insert($data);		
 		}
 		else
@@ -92,10 +92,11 @@ class slidercontroller extends Controller
 	}
 
 
-	public function  (Request $id,$edit){
+	public function  updateslidermethod(Request $id, $edit){
+
 		$validation      =$id->validate([
 			'title'         =>'required',
-			'url'           =>'required',
+			'url'           =>'required'
 		]);
 
 		$data= array(
@@ -113,8 +114,8 @@ class slidercontroller extends Controller
 				unlink($oldimage);
 			}
 			$image_one_name= hexdec(uniqid()).'.'.$newslider->getClientOriginalExtension();
-			Image::make($newslider)->save('public/image/sliderimage/'.$image_one_name,80);
-			$data['slider_image']='public/image/sliderimage/'.$image_one_name;
+			Image::make($newslider)->save('image/sliderimage/'.$image_one_name,80);
+			$data['slider_image']='image/sliderimage/'.$image_one_name;
 			DB::table('slider_information')->where('id',$edit)->update($data);
 		}
 		else

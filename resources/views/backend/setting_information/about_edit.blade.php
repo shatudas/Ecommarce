@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -11,7 +11,7 @@
 			<li class="breadcrumb-item active">About Information</li>
 		</ol>
 	</div>
-<form method="post" action="{{url('insert_about')}}" enctype="multipart/form-data">
+<form method="post" action="{{ route('insert_about')}}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -38,9 +38,8 @@
 							<div class="form-group mt-4">
 								<button type="submit" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#3498DB; color:#fff;">Submit</button>
 
-								<a href="{{url('about_edit/')}}" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#58D68D; color:#fff; margin-left:6px;">Edit</a>
+								<a href="{{ route('about_edit')}}" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#58D68D; color:#fff; margin-left:6px;">Edit</a>
 
-								{{-- <button type="reset" class="btn" style="border-radius:1px; padding-left:30px; padding-right:30px; background-color:#58D68D; color:#fff; margin-left:6px;">Refresh</button> --}}
 
 							</div>
 

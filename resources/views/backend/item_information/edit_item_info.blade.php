@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -11,7 +11,7 @@
 		</ol>
 	</div>
 
-<form method="POST" action="{{url('item_update/'.$edit->id)}}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('item_update',$edit->id) }}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid">
 		<div class="row">
@@ -20,7 +20,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Edit Item Information
-							<a href="{{url('manage_item')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Item</a>
+							<a href="{{ route('manage_item') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Item</a>
 
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 								<input type="file" name="item_image" id="profile-img"  aria-describedby="emailHelp" style="width:30%; float:left; clear:right;">
 
 								@if(isset($edit->item_image))
-								<img src="{{url($edit->item_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
+								<img src="{{ asset($edit->item_image)}}" id="profile-img-tag" width="80px" height="80"   style="margin-left:20px; border:1px solid #DFE0E1;">
 								@endif
 								<input type="hidden" name="old_image" class="form-control" value="{{$edit->item_image}}"  aria-describedby="emailHelp" >	
 							</div>

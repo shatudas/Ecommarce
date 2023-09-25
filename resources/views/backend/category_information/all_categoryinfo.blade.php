@@ -27,7 +27,7 @@
 						<thead>
 							<tr>
 								<td colspan="2" style="border:0px;">
-									<img src="{{url($logo->setting_image)}}" class="img-fluid" style="width:100px; margin-left:8%;" align="center">
+									<img src="{{ asset($logo->setting_image)}}" class="img-fluid" style="width:100px; margin-left:8%;" align="center">
 								</td>
 								<td colspan="5" class="" style="border:0px; padding-left:15%;">
 									<h3>View All Category Information</h3>
@@ -64,9 +64,9 @@
 									@endif
 								</td>
 								<td  align="center">
-									<img src="{{url($cat_data->category_image)}}" class="img-fluid" style="width:80px;" >
+									<img src="{{ asset($cat_data->category_image) }}" class="img-fluid" style="width:80px;" >
 								</td>
-								<td>{{ $cat_data->name}}(#{{$cat_data->admin_id}})</td>
+								<td>{{ $cat_data->name}}(#{{$cat_data->admin_id }})</td>
 							</tr>
 
 							@endforeach
@@ -83,8 +83,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- state end-->
 
 </div>
 

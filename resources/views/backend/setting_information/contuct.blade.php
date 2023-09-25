@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -13,7 +13,7 @@
 	</div>
 
 
-	<form method="POST" enctype="multipart/form-data" action="{{url('update_contuct/'.$contuct->id)}}">
+	<form method="POST" enctype="multipart/form-data" action="{{ route('update_contuct',$contuct->id)}}">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">

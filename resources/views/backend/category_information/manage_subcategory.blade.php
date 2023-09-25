@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -21,7 +21,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Manage Sub Category
-							<a href="{{url('subcategory_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Sub Category</a>
+							<a href="{{ route('subcategory_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Sub Category</a>
 						</div>
 					</div>
 
@@ -57,9 +57,9 @@
 									<td>{{$dataview->subcategory_name}}</td>
 									<td>
 										@if ($dataview->status==1)
-										<a href="{{url('subcatinactive/'.$dataview->id)}} " class="btn btn-success">Active</a>
+										<a href="{{route('subcatinactive',$dataview->id)}} " class="btn btn-success">Active</a>
 										@else
-										<a href="{{url('subcatactive/'.$dataview->id)}}" class="btn btn-danger">Inactive</a>
+										<a href="{{route('subcatactive',$dataview->id)}}" class="btn btn-danger">Inactive</a>
 										@endif
 										
 										<td>{{$dataview->name}}<small>(#{{$dataview->admin_id}})</small></td>
@@ -72,9 +72,9 @@
 										</td>
 										<td style="padding:0px;">
 											<div align="center" style="padding-left:0px; padding-top:4px;">
-												<a href="{{url('deletesubcat/'.$dataview->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="ti-trash" onclick="return confirm('Data Delete Sure..')"></i></a>
+												<a href="{{ route('deletesubcat',$dataview->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="ti-trash" onclick="return confirm('Data Delete Sure..')"></i></a>
 
-												<a href="{{url('editsubcat/'.$dataview->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+												<a href="{{ route('editsubcat',$dataview->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 													"></i></a>
 												</div>
 											</td>

@@ -27,7 +27,7 @@
 						<thead>
 							<tr>
 								<td colspan="2" style="border:0px;">
-									<center><img src="{{url($logo->setting_image)}}" class="img-fluid" style="width:100px;" align="center"></center>
+									<center><img src="{{ asset($logo->setting_image) }}" class="img-fluid" style="width:100px;" align="center"></center>
 								</td>
 								<td colspan="4" class="" style="border:0px;">
 									<h3 style="margin-left:15%;">View All Brand Information</h3>
@@ -62,9 +62,9 @@
 									@endif
 								</td>
 								<td  align="center">
-									<img src="{{url($brand_data->brand_image)}}" class="img-fluid" style="width:80px;" >
+									<img src="{{ asset($brand_data->brand_image)}}" class="img-fluid" style="width:80px;" >
 								</td>
-								<td>{{ $brand_data->name}}(#{{$brand_data->admin_id}})</td>
+								<td>{{ $brand_data->name }}(#{{ $brand_data->admin_id }})</td>
 							</tr>
 
 							@endforeach

@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -21,7 +21,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Manage FAQ
-							<a href="{{url('faq')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add FAQ</a>
+							<a href="{{ route('faq')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add FAQ</a>
 						</div>
 					</div>
 

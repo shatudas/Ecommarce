@@ -40,8 +40,8 @@ class brandcontroller extends Controller
 		if ($newimage)
 		{
 			$image_name= hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/brandimage/'.$image_name,80);
-			$data['brand_image']='public/image/brandimage/'.$image_name;
+			Image::make($newimage)->save('image/brandimage/'.$image_name,80);
+			$data['brand_image']='image/brandimage/'.$image_name;
 			DB::table('brand_information')->insert($data);
 		}
 		else
@@ -131,8 +131,8 @@ class brandcontroller extends Controller
 				unlink($oldimage);
 			}
 			$image_one_name= hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/brandimage/'.$image_one_name,80);
-			$data['brand_image']='public/image/brandimage/'.$image_one_name;
+			Image::make($newimage)->save('image/brandimage/'.$image_one_name,80);
+			$data['brand_image']='image/brandimage/'.$image_one_name;
 			DB::table('brand_information')->where('id',$edit)->update($data);
 		}
 		else

@@ -74,8 +74,8 @@ public function getsubcategorymethod($category_id){
 
 		if ($proimage){
 			$image_one_name= hexdec(uniqid()).'.'.$proimage->getClientOriginalExtension();
-			Image::make($proimage)->save('public/image/projuctimage/'.$image_one_name,80);
-			$data['product_image']='public/image/projuctimage/'.$image_one_name;
+			Image::make($proimage)->save('image/projuctimage/'.$image_one_name,80);
+			$data['product_image']='image/projuctimage/'.$image_one_name;
 			DB::table('product_information')->insert($data);
 		}
 		else
@@ -235,8 +235,8 @@ public function getsubcategorymethod($category_id){
 				unlink($oldimage);
 			}
 			$image_one_name= hexdec(uniqid()).'.'.$newimage->getClientOriginalExtension();
-			Image::make($newimage)->save('public/image/projuctimage/'.$image_one_name,80);
-			$data['product_image']='public/image/projuctimage/'.$image_one_name;
+			Image::make($newimage)->save('image/projuctimage/'.$image_one_name,80);
+			$data['product_image']='image/projuctimage/'.$image_one_name;
 			DB::table('product_information')->where('id',$edit)->update($data);
 		}
 		else

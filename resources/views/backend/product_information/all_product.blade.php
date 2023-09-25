@@ -96,7 +96,7 @@
 								</td>
 								<td>
 									@if(isset($viewdata->product_image))
-									<img src="{{url($viewdata->product_image)}}" class="zoom" style="max-height: 40px;">
+									<img src="{{ asset($viewdata->product_image)}}" class="zoom" style="max-height: 40px;">
 									@else
 									No Image
 									@endif

@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 <main class="main-content">
@@ -54,18 +54,18 @@
 									<td>{{$viewdata->address}}</small></td>
 									<td align="center">
 										@if(isset($viewdata->image))
-										<img src="{{$viewdata->image}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
+										<img src="{{asset($viewdata->image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
 										@else
-										<img src="{{'public/fontlink/images'}}/1024px-No_image_available.png" style="height:50px; width:50px; "align="center">
+										<img src="{{'asset/fontlink/images'}}/1024px-No_image_available.png" style="height:50px; width:50px; "align="center">
 										@endif
 									</td>
 
 								
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{url('user_acc_del/'.$viewdata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
+											<a href="{{ route('user_acc_del',$viewdata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
 
-											<a href="{{url('user_acc_edit/'.$viewdata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{ route('user_acc_edit',$viewdata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 
 											</div>

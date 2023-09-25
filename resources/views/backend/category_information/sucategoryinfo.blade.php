@@ -1,11 +1,11 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
 <main class="main-content">
 
 	<div class="page-title pt-2">
-		<h4 class="mb-0"> Sub Category Information</h4>
+		<h4 class="mb-0"> Sub Category Information </h4>
 		<ol class="breadcrumb mb-0 pl-2 pb-0 pt-0">
 			<li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
 			<li class="breadcrumb-item active">Sub Category Information</li>
@@ -13,7 +13,7 @@
 	</div>
 
 
-	<form method="POST" action="{{url('subcategory_insert')}}" enctype="multipart/form-data">
+	<form method="POST" action="{{ route('subcategory_insert') }}" enctype="multipart/form-data">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">
@@ -22,7 +22,7 @@
 						<div class="card-header">
 							<div class="card-title">
 								Sub Category Information
-								<a href="{{url('manage_subcategory')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Sub Category</a>
+								<a href="{{ route('manage_subcategory') }}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View Sub Category</a>
 
 							</div>
 						</div>

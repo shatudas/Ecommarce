@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -22,7 +22,7 @@
 						<div class="card-title">
 							Product Manage
 
-							<a href="{{url('product_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Product</a>
+							<a href="{{ route('product_info')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Product</a>
 						</div>
 					</div>
 
@@ -64,23 +64,23 @@
 									</td>
 									<td>
 										@if($viewpro->stock_status==1)
-										<a href="{{url('status_Available/'.$viewpro->id)}} " class="btn btn-success">Available</a>
+										<a href="{{ route('status_Available',$viewpro->id)}} " class="btn btn-success">Available</a>
 										@else
-										<a href="{{url('status_Unavailable/'.$viewpro->id)}}" class="btn btn-danger">Anavailable</a>
+										<a href="{{ route('status_Unavailable',$viewpro->id)}}" class="btn btn-danger">Anavailable</a>
 										@endif
 				     </td>
 
 									<td>
 										@if($viewpro->status==1)
-										<a href="{{url('active/'.$viewpro->id)}}" class="btn btn-success">Active</a>
+										<a href="{{route('active',$viewpro->id)}}" class="btn btn-success">Active</a>
 										@else
-										<a href="{{url('inactive/'.$viewpro->id)}}" class="btn btn-danger">Inactive</a>
+										<a href="{{route('inactive',$viewpro->id)}}" class="btn btn-danger">Inactive</a>
 										@endif
 				     </td>
 
 									<td>
 										@if ($viewpro->product_image)
-										<img src="{{url($viewpro->product_image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
+										<img src="{{ asset($viewpro->product_image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
 										@else
 										No image
 										@endif
@@ -88,9 +88,9 @@
 									</td>
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{url('deletepro/'.$viewpro->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('Product Delete Sure..')"><i class="ti-trash"></i></a>
+											<a href="{{route('deletepro',$viewpro->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('Product Delete Sure..')"><i class="ti-trash"></i></a>
 
-											<a href="{{url('editpro/'.$viewpro->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{route('editpro',$viewpro->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 											</div>
 										</td>

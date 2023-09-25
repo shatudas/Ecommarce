@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -21,7 +21,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							Slider Manage
-							<a href="{{url('slider_add')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Slider</a>
+							<a href="{{ route('slider_add')}}" class="btn py-2" style=" float:right; border:2px solid #4DA6FF; border-radius:0px; color:#000;">Add Slider</a>
 						</div>
 					</div>
 
@@ -58,16 +58,16 @@
 								<td>{{$sliderdata->name}}<small>#{{$sliderdata->admin_id}}</small></td>
 								<td>
 									@if($sliderdata->slider_image)
-									<img src="{{url($sliderdata->slider_image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
+									<img src="{{ asset($sliderdata->slider_image)}}" style="height:50px; width:50px; border:1px solid #ccc;"  align="center">
 									@else
 									No Image
 									@endif
 								</td>
 								<td style="padding:0px;">
 									<div align="center" style="padding-left:0px; padding-top:4px;">
-										<a href="{{url('slider_delete/'.$sliderdata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="ti-trash" onclick="return confirm('Slider Delete Sure..')"></i></a>
+										<a href="{{ route('slider_delete',$sliderdata->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="ti-trash" onclick="return confirm('Slider Delete Sure..')"></i></a>
 
-										<a href="{{url('slider_edit/'.$sliderdata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+										<a href="{{ route('slider_edit',$sliderdata->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 											"></i></a>
 										</div>
 									</td>

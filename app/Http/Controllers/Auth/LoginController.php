@@ -71,13 +71,12 @@ class LoginController extends Controller
      {
 
       $notification=array(
-   'messege'    =>'Email or Password Incorrect',
-   'alert-type' =>'error'
-  );
+       'messege'    =>'Email or Password Incorrect',
+       'alert-type' =>'error'
+      );
 
       return redirect()->back()->with($notification);
-            // return redirect()->route('login')
-            //     ->with('error','Email-Address And Password Are Wrong.');
+           
      }
 
     }

@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('backend.layouts.index')
 @section('backcontent')
 
 
@@ -11,7 +11,7 @@
 			<li class="breadcrumb-item active">FAQ</li>
 		</ol>
 	</div>
-<form method="post" action="{{url('Insert_FAQ')}}" enctype="multipart/form-data">
+<form method="post" action="{{ route('Insert_FAQ')}}" enctype="multipart/form-data">
 	@csrf
 	<div class="container-fluid" >
 		<div class="row">
@@ -20,7 +20,7 @@
 					<div class="card-header">
 						<div class="card-title">
 							FAQ
-							<a href="{{url('manage_faq')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View FAQ</a>
+							<a href="{{ route('manage_faq')}}" class="btn py-1 bx-3" style="float:right; font-size:15px; color:#fff; font-weight:400;text-transform: capitalize; background-color:#FE776A; border-radius:1px;"> View FAQ</a>
 						</div>
 					</div>
 					<div class="card-body">
@@ -40,7 +40,7 @@
 								<textarea type="text" name="detalis" id="aboutsummernote" class="form-control @error('detalis') is-invalid @enderror">
 									
 								</textarea>
-								{{-- <input type="text" name="detalis" id="aboutsummernote" class="form-control @error('detalis') is-invalid @enderror"  aria-describedby="emailHelp" value="{{old('detalis')}}"> --}}
+				
 								@error('detalis')
 										<span style="color:red;">detalis Is Empty</span>
 									@enderror		
