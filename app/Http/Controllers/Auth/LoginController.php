@@ -35,49 +35,39 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout');
     }
 
     public function login(Request $request)
-    {   
-     $input = $request->all();
+    {
+        $input = $request->all();
 
-     $this->validate($request, [
-      'email'    => 'required|email',
-      'password' => 'required',
-     ]);
+        $this->validate($request, [
+            'email'    => 'required|email',
+            'password' => 'required',
+        ]);
 
-     if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-     {
+        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
 
+            if (auth()->user()->is_admin == 1) {
+                return redirect()->route('admin.home');
+            } else if (auth()->user()->is_admin == 0) {
+                return redirect()->route('userdashboard');
+            }
 
-      if (auth()->user()->is_admin == 1)
-      {
-       return redirect()->route('admin.home');
-      }
+            // View [fontend.user_dashboard.user_dashboard]
 
-      else if (auth()->user()->is_admin == 0) {
-       return view('fontend.user_dashboard.user_dashboard');
-      }
+            // else {
+            //     return redirect()->route('home');
+            // }
+        } else {
 
-      else
-      {
-       return redirect()->route('home');
-      }
-      
-     }
+            $notification = array(
+                'messege'    => 'Email or Password Incorrect',
+                'alert-type' => 'error'
+            );
 
-     else
-     {
-
-      $notification=array(
-       'messege'    =>'Email or Password Incorrect',
-       'alert-type' =>'error'
-      );
-
-      return redirect()->back()->with($notification);
-           
-     }
-
+            return redirect()->back()->with($notification);
+        }
     }
-   }
+}

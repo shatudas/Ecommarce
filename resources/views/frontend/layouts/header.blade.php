@@ -21,22 +21,33 @@
 
 							<div class="top_bar_content ml-auto">
 								<div class="top_bar_user">
-									
-									<div class="user_icon">
-										<img src="{{ asset('fontlink')}}/images/user.svg" alt="">
-									</div>
-									
-									<div>
-										@if( Auth::check())
-										<a href="{{route('userdashboard')}}"  style="text-decoration:none;">
-											{{ Auth()->user()->name }}
-										</a>
-										@else
-										 <a data-toggle="modal" data-target="#staticBackdrop" style="text-decoration:none;" >Register</a>
-										@endif
-									</div>
+								
 
-									<div><a href="{{ route('login') }}" target="_blank">Sign in</a></div>
+									
+										@if( Auth::check())
+										@if(auth()->user()->is_admin == 0)
+
+										 <a href="{{route('userdashboard')}}"  style="text-decoration:none;">
+												{{ Auth()->user()->name }}
+											</a>
+
+											@else
+												<div class="user_icon">
+											<img src="{{ asset('fontlink')}}/images/user.svg" alt="">
+										</div>
+									
+									 <div>
+										 <a data-toggle="modal" data-target="#staticBackdrop" style="text-decoration:none;" >Register</a>
+								 	</div>
+
+
+										@endif
+									 @else
+		
+									
+										@endif
+
+									<div><a href="{{ route('login') }}" target="_blank"> Sign in</a></div>
 								</div>
 							</div> 
 
