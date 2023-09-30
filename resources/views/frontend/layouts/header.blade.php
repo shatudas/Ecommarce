@@ -43,6 +43,15 @@
 
 										@endif
 									 @else
+
+									 <div class="user_icon">
+											<img src="{{ asset('fontlink')}}/images/user.svg" alt="">
+										</div>
+									
+									 <div>
+										 <a data-toggle="modal" data-target="#staticBackdrop" style="text-decoration:none;" >Register</a>
+								 	</div>
+
 		
 									
 										@endif

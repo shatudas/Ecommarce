@@ -29,19 +29,19 @@ $contenttable=DB::table('contuct')->first();
 </head>
 <body style="background-color:#f2f2f2;">
 
- <div class="container mt-3" >
+ <div class="container mt-5">
 
-  <div class="row">
-   <div class=" col-sm-12" style="background-color:#f4f4f4; padding:0px;">
+  <div class="row justify-content-center">
+   <div class=" col-sm-9" style="background-color:#f4f4f4; padding:0px;">
     <div class="card card-shadow" style="padding:0px;">
      <div class="card-body m-0 p-0">
       
       <div class="row p-0 m-0">
 
-      	<div class="col-sm-12 p-1" style="background-color:#F7BD5D; ">
+      	<div class="col-sm-12 p-1" style="background-color:#f3f3ff; ">
       		<div class="row">
       	  <div class="col-sm-6">
-      		   <img src="{{ asset('$setting->setting_image') }}"  style="height:60px;">
+      		   <img src="{{ asset($setting->setting_image) }}"  style="height:40px; padding:10px;">
        	   <br/>
       	  </div>
       	  <div class="col-sm-6">
@@ -51,7 +51,6 @@ $contenttable=DB::table('contuct')->first();
       	</div>
 
        <div class="col-sm-6 mb-2">
-        <span>{{ $setting->phone }}</span> <br/>
         <span>{{ $setting->email }}</span> <br/>
        </div>
        <div class="col-sm-6 text-md-right mb-2">
@@ -66,35 +65,38 @@ $contenttable=DB::table('contuct')->first();
       <div class="row">
 
        <div class="col-sm-6 mb-3 pl-5">
-        <h6>TO:</h6>
+        <h6><strong>TO:</strong></h6>
         <span>{!! $contenttable->details !!}</span> <br/>
         <span>+{{ $contenttable->phone }}</span> 
        </div>
 
        <div class="col-sm-6 mb-3">
-        <h6>FROM TO:</h6>
+        <h6><strong>FROM </strong></h6>
         @if(isset($adddata))
-        <span>Name 
+        <span><strong>Name</strong> 
         	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        :- {{ $adddata->name }}</span><br/>
-        <span>Phone  
+        : {{ $adddata->name }}</span><br/>
+        <span><strong>Phone</strong>  
         	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        	:- {{ $adddata->phone }}</span><br/>
-        <span>Email
+        	: {{ $adddata->phone }}</span><br/>
+
+     
+        <span><strong>Email</strong>
         	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        	:- {{ $adddata->email }}</span><br/>
-        <span>Shiping Adddress
+        	: {{ $adddata->email }}</span><br/>
+        <span><strong>Shiping Adddress</strong>
        
-        	:- {{ $adddata->address }}</span><br/>
+        	:{{ $adddata->address }}</span><br/>
 
         @endif
        </div>
 
-       <div class="col-sm-12 mb-4 " >
-        <center><strong style="text-transform:uppercase; border-bottom:2px solid #F7BD5D; padding-bottom:8px;">Product  Invoice Detalis</strong></center>
+       <div class="col-sm-12 mb-4">
+        <center><strong style="text-transform:uppercase; border-bottom:2px solid #F7BD5D; padding-bottom:8px;">Invoice Detalis</strong></center>
        </div>
+
        <div class="col-sm-12 ">
-        <table class="table table-bordered table-striped " style="width:95%;" align="center">
+        <table class="table table-sm table-bordered table-striped " style="width:95%;" align="center">
          <thead>
           <tr>
            <th scope="col"># SL</th>
@@ -128,52 +130,47 @@ $contenttable=DB::table('contuct')->first();
           	<td align="center">{{$invoicedata->qty}}</td>
           	<td>{{$invoicedata->size}}</td>
           	<td>{{$invoicedata->color}}</td>
-          	<td>{{$invoicedata->total_price}}</td>
+          	<td align="right">{{$invoicedata->total_price}}</td>
           </tr>
 
 
-          	@endforeach
-			        @endif
-  
-    
+          @endforeach
+			       @endif
 
          </tbody>
         </table>
        </div>
+
        <div class="col-sm-4 ml-auto">
-        <table class="table table-bordered table-striped" style="width:95%; margin-left:-10px;">
+        <table class="table table-sm table-bordered table-striped" style="width:95%; margin-left:-10px;">
          <tbody>
 
           <tr>
-           <td>Subtotal</td>
-           <td>{{$total}}</td>
-          </tr>
-          <tr>
-           <td>Tax</td>
-           <td>0.00</td>
-          </tr>
-
-          <tr>
-           <td>Discount</td>
-           <td>0.00</td>
+           <td>Sub Total</td>
+           <td align="right">{{$total}}</td>
           </tr>
           <tr>
            <td>
             <strong>GRAND TOTAL</strong>
            </td>
-           <td><strong>{{ $total }}</strong></td>
+           <td align="right"><strong>{{ $total }}</strong></td>
           </tr>
 
          </tbody>
         </table>
        </div>
 
-       <div class="col-sm-12">
-        <div class="border p-4"><Strong>Note:</Strong>
-         <strong class="f12">Thanks for your business</strong>
-         <div align="right">
-							<input type="button" id="btnPrint" class="btn btn-outline-primary btn-sm" onclick="window.print();" value="Print" style="margin-right:-0px;" align="right">
-						</div>
+       </div>
+
+       <div class="col-sm-12 m-2">
+        <div class="row">
+          <div class="col-6">
+            <Strong>Note:</Strong>
+            <strong class="f12">Thanks for Your Purchases</strong>
+          </div>
+          <div class="col-6">
+            <input type="button" id="btnPrint" class="btn btn-outline-primary btn-sm" onclick="window.print();" value="Print" align="right" style="float:right;">
+          </div>
         </div>
        </div>
 

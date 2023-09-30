@@ -69,7 +69,7 @@ Route::middleware('isCustomer')->group(function(){
 Auth::routes(['register'=>false]);
 
 Route::middleware('is_admin')->group(function(){
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('admin','HomeController@adminHome')->name('admin.home');
 
     //________User Info___________//

@@ -89,6 +89,7 @@
 									<thead>
 										<tr>
 											<th>Order Id</th>
+											<th>View Invoice</th>
 											<th>Order Date</th>
 											<th>Payment</th>
 											<th>Status</th>
@@ -104,6 +105,12 @@
 											<td title="view invoice" >
 												<a href="{{route('invoice',$OrderData->id)}}" class="text-dark font-weight-bold" target="_blabk">
 													{{$OrderData->id}}
+												</a>
+											</td>
+
+											<td>
+												<a href="{{route('invoice',$OrderData->id)}}">
+													<center><i class="fa fa-file-pdf-o" style="color:#FEC64D; font-size:24px;"></i></center>
 												</a>
 											</td>
 											<td>{{ $OrderData->order_date }}</td>

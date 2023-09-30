@@ -24,20 +24,20 @@ class HomeController extends Controller
      */
 
 
-    public function index()
-    {
-     if (Auth()->user()->is_admin != 1 )
-     {
+    // public function index()
+    // {
+    //  if (Auth()->user()->is_admin != 1 )
+    //  {
       
-      return redirect('/');
-     }
-     else
-     {
-      Auth::logout();
-      return redirect('login');
-     }
+    //   return redirect('/');
+    //  }
+    //  else
+    //  {
+    //   Auth::logout();
+    //   return redirect('login');
+    //  }
      
-    }
+    // }
 
 
     public function adminHome()
