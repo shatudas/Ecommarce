@@ -61,7 +61,7 @@ $replay_meassage = $id->replay_meassage;
 $headers = "From:das.shatu2000@gmail.com";
 
 	$data= array(
-	 'email'  =>$id->email,
+	 'email'            =>$id->email,
 	 'replay_meassage'  =>$id->replay_meassage,
 	 'admin_id'         => Auth()->user()->id,
 	);

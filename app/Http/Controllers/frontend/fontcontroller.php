@@ -231,23 +231,22 @@ class fontcontroller extends Controller
 		$is_admin = '0';
 		$user_type='0';
 		$data = array(
-			'name' =>$r->name,
-			'email' =>$r->email,
-			'phone' =>$r->phone,
-			'password' =>Hash::make($r['password']),
-			'address' =>$r->address,
-			'is_admin'  => $is_admin,
+			'name'            =>$r->name,
+			'email'           =>$r->email,
+			'phone'           =>$r->phone,
+			'password'        =>Hash::make($r['password']),
+			'address'         =>$r->address,
+			'is_admin'        => $is_admin,
 			'user_condition'  => $user_type,
 		);
 
 		DB::table('users')->insert($data);
-		$notification=array(
-			'messege'   =>'Register  Successfully',
-			'alert-type'=>'success'
+		$notification =array(
+			'messege'    =>'Register  Successfully',
+			'alert-type' =>'success'
 		);
 		return Redirect()->back()->with($notification);
 	}
-
 
 
 //--------chackout page--------//
@@ -261,8 +260,6 @@ class fontcontroller extends Controller
 	}
 
 
-	
-
 	public function shopmethod(){
 		return view('frontend.product_info.shop');
 	}
@@ -274,12 +271,6 @@ class fontcontroller extends Controller
 	public function regularmethod(){
 		return view('frontend.product_info.regular');
 	}
-
-
-	
-
-
-
 
 
  public function about_us_method(){

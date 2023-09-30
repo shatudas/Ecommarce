@@ -10,7 +10,8 @@ use Image;
 
 class productcontroller extends Controller
 {
-   public function __construct()
+ 
+ public function __construct()
 	{
 		$this->middleware('auth');
 	}
@@ -70,10 +71,10 @@ public function getsubcategorymethod($category_id){
 			'measurement'     =>$r->measurement
 		);
 
-		$proimage=$r->file('product_image');
+		$proimage = $r->file('product_image');
 
 		if ($proimage){
-			$image_one_name= hexdec(uniqid()).'.'.$proimage->getClientOriginalExtension();
+			$image_one_name = hexdec(uniqid()).'.'.$proimage->getClientOriginalExtension();
 			Image::make($proimage)->save('image/projuctimage/'.$image_one_name,80);
 			$data['product_image']='image/projuctimage/'.$image_one_name;
 			DB::table('product_information')->insert($data);
@@ -82,16 +83,16 @@ public function getsubcategorymethod($category_id){
 		{
 			DB::table('product_information')->insert($data);
 		}
-		$notification=array(
-			'messege'   =>'Product Add Successfully',
-			'alert-type'=>'success'
+		$notification = array(
+			'messege'    =>'Product Add Successfully',
+			'alert-type' =>'success'
 		);
 		return Redirect()->back()->with($notification);
 	}
 
 
 	public function manageproductmethod(){
-		$product=DB::table('product_information')
+		$product = DB::table('product_information')
 		->leftjoin('item_information','item_information.id','product_information.item_id')
 		->select('product_information.*','item_information.item_name')
 		->get();
@@ -100,7 +101,7 @@ public function getsubcategorymethod($category_id){
 
 
 	public function allproductmethod(){
-		$product=DB::table('product_information')
+		$product = DB::table('product_information')
 		->leftjoin('item_information','item_information.id','product_information.item_id')
 		->leftjoin('category_information','category_information.id','product_information.category_id')
 		->leftjoin('subcategory_information','subcategory_information.id','product_information.sub_category_id')
@@ -111,13 +112,11 @@ public function getsubcategorymethod($category_id){
 	}
 
 
-
-
 	public function statusAvailablemethod($id){
 		DB::table('product_information')->where('id',$id)->update(['stock_status'=>0]);
-		$notification=array(
-			'messege'   =>'Stock Status Successfully',
-			'alert-type'=>'error'
+		$notification = array(
+			'messege'    => 'Stock Status Successfully',
+			'alert-type' => 'error'
 		);
 		return Redirect()->back()->with($notification); 
 	}
@@ -125,9 +124,9 @@ public function getsubcategorymethod($category_id){
 
 	public function statusUnavailablemethod($id){
 		DB::table('product_information')->where('id',$id)->update(['stock_status'=>1]);
-		$notification=array(
-			'messege'   =>'Stock Status Successfully Successfully',
-			'alert-type'=>'success'
+		$notification = array(
+			'messege'    =>'Stock Status Successfully Successfully',
+			'alert-type' =>'success'
 		);
 		return Redirect()->back()->with($notification); 
 	}
@@ -145,7 +144,7 @@ public function getsubcategorymethod($category_id){
 	
 	public function inactivepromethod($id){
 		DB::table('product_information')->where('id',$id)->update(['status'=>1]);
-		$notification=array(
+		$notification = array(
 			'messege'   =>'Status Successfully Successfully',
 			'alert-type'=>'success'
 		);
@@ -154,7 +153,7 @@ public function getsubcategorymethod($category_id){
 
 	
 	public function deletepromethod($id){
-		$datachack=DB::table('product_information')->where('id',$id)->first();
+		$datachack = DB::table('product_information')->where('id',$id)->first();
 		if (isset($datachack->product_image)){
 			unlink($datachack->product_image);
 			DB::table('product_information')->where('id',$id)->delete();

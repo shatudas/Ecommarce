@@ -14,7 +14,7 @@ class settingcontroller extends Controller
 		$this->middleware('auth');
 	}
 
-//--------setting info-------------------//
+//--------setting info------------//
 	public function settingmethod(){
 		$setting=DB::table('setting_information')->first();
 		return view('backend.setting_information.setting_info', compact('setting'));
@@ -31,6 +31,36 @@ class settingcontroller extends Controller
 			'instagram' => $id->instagram,
 			'youtube'   => $id->youtube,
 		);
+
+
+		// if($id->file('setting_image')){
+  //   $file = $id->file('setting_image');
+  //   @unlink(public_path('upload/GenarelSetting/logo/'.$data->setting_image));
+  //   $filename = 'setting_image'.'.'.$file->getClientOriginalExtension();
+  //   $file->move(public_path('upload/GenarelSetting/'),$filename);
+  //   $data['setting_image'] = $filename;
+  //  }
+
+  //  if($id->file('favicon')){
+  //   $file = $id->file('favicon');
+  //   @unlink(public_path('upload/GenarelSetting/'.$data->favicon));
+  //   $filename = 'favicon'.'.'.$file->getClientOriginalExtension();
+  //   $file->move(public_path('upload/GenarelSetting/'),$filename);
+  //   $data['favicon'] = $filename;
+  //  }
+
+  //  dd($data);
+
+  //  DB::table('setting_information')->where('id',$edit)->update($data);
+
+
+  //  $notification=array(
+		// 	'messege'   =>'Setting update Successfully',
+		// 	'alert-type'=>'success'
+		// );
+
+  //  return Redirect()->back()->with($notification); 
+
 
 		$newimage    = $id->file('setting_image');
 		$favicon     = $id->file('favicon');
@@ -76,5 +106,8 @@ class settingcontroller extends Controller
 		return Redirect()->back()->with($notification); 
 
 	}
+
+
+
 
 }

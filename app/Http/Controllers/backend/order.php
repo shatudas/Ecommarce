@@ -20,7 +20,7 @@ class order extends Controller
   DB::table('invoece')->where('id',$id)->update(['status'=>$Req->status]);
 
   $notification=array(
-			'messege'    =>'Order  Successfully',
+			'messege'    =>'Order Successfully',
 			'alert-type' =>'success'
 		);
   return redirect()->back()->with($notification);

@@ -177,6 +177,7 @@
          </div>
 
          <div class="form-group">
+          <label>Discriptions</label>
           <textarea type="text" id="summernote1" name="full_detalis" class="form-control" placeholder="Enter full detalis"></textarea>
          </div>
 

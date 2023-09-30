@@ -21,18 +21,19 @@ class itemcontroller extends Controller
 	public function iteminsertmethod(Request $a)
 	{
 		
-		$validation=$a->validate([
+		$validation = $a->validate([
 			'sl'         =>'required',
 			'item_name'  =>'required',
 			'status'     =>'required',
 		]);
 
-		$data= array(
+		 $data = array(
 			'sl'         =>$a->sl,
 			'item_name'  =>$a->item_name,
 			'status'     =>$a->status,
 			'admin_id'   =>Auth()->user()->id,
 		);
+
 		$newimage     = $a->file('item_image');
 		if ($newimage)
 		{
@@ -46,7 +47,7 @@ class itemcontroller extends Controller
 			DB::table('item_information')->insert($data);
 		}
 
-		$notification=array(
+		$notification = array(
 			'messege'    =>'Item Added Successfully',
 			'alert-type' =>'success'
 		);
@@ -54,7 +55,7 @@ class itemcontroller extends Controller
 	}
 
 	public function manageitemmethod(){
-		$itemdata=DB::table('item_information')
+		$itemdata = DB::table('item_information')
 		->leftjoin('users','users.id','item_information.admin_id')
 		->select('item_information.*','users.name')
 		->get();
@@ -63,18 +64,18 @@ class itemcontroller extends Controller
 
 	public function itemactivemethod($id){
 		DB::table('item_information')->where('id',$id)->update(['status'=>1]);
-		$notification=array(
-			'messege'   =>'Item Active Successfully',
-			'alert-type'=>'success'
+		$notification = array(
+			'messege'    =>'Item Active Successfully',
+			'alert-type' =>'success'
 		);
 		return Redirect()->back()->with($notification); 
 	}
 
 	public function iteminactivemethod($id){
 		DB::table('item_information')->where('id',$id)->update(['status'=>0]);
-		$notification=array(
-			'messege'   =>'Item Inactive Successfully',
-			'alert-type'=>'error'
+		$notification = array(
+			'messege'    =>'Item Inactive Successfully',
+			'alert-type' =>'error'
 		);
 		return Redirect()->back()->with($notification); 
 	}
@@ -152,10 +153,6 @@ class itemcontroller extends Controller
 		
 	 return view('backend.item_information.all_item_info',compact('allitem_info','logo'));
 	}
-
-
-
-
 
 
 }

@@ -120,8 +120,8 @@ public function profileUpmethod(Request $id,$req){
 	 }
 
 	 $image_one_name= hexdec(uniqid()).'.'.$new_img->getClientOriginalExtension();
-  Image::make($new_img)->save('public/image/adminimage/'.$image_one_name,80);
-  $data['image']='public/image/adminimage/'.$image_one_name;
+  Image::make($new_img)->save('image/adminimage/'.$image_one_name,80);
+  $data['image']='image/adminimage/'.$image_one_name;
   DB::table('users')->where('id',$req)->update($data);
 }
 else

@@ -40,7 +40,7 @@
 							<div class="logo_container">
 								<div class="logo" >
 									<a href="#">
-										<img src="{{ asset($setting->setting_image) }}" class="img-fluid" alt="" style="height:80px;">
+										<img src="{{ asset($setting->setting_image) }}" class="img-fluid" alt="" style="height:50px; padding-top:10px;">
 									</a>
 								</div>
 							</div>
@@ -126,8 +126,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-sm-6">
-						<center>Copyright &copy; <?php echo date("Y"); ?> All rights reserved |  by <a href="#" target="_blank">
-							<img src="{{ asset($setting->setting_image) }}" class="img-fluid" alt=""  style="width:70px; z-index:100;">
+						<center>Copyright &copy; <?php echo date("Y"); ?>  All rights reserved |  by <a href="#" target="_blank">
+							<img src="{{ asset($setting->setting_image) }}" class="img-fluid" alt=""  style="width:50px; z-index:100;">
 						</a></center>
 					</div>
 					<div class="col-lg-6 col-sm-6" style="background-color:#ccc;">

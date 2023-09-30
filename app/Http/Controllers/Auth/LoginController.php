@@ -57,7 +57,7 @@ class LoginController extends Controller
       }
 
       else if (auth()->user()->is_admin == 0) {
-       return view('fontend.user_dashboard');
+       return view('fontend.user_dashboard.user_dashboard');
       }
 
       else

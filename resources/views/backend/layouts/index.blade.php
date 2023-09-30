@@ -198,6 +198,40 @@ $setting=DB::table('setting_information')->first();
   });
  </script>
 
+
+{{-- <!-----image show script------->
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('#image').change(function(e){
+   var reader = new FileReader();
+   reader.onload=function(e){
+    $('#showImage').attr('src',e.target.result);
+   } 
+   reader.readAsDataURL(e.target.files['0']);
+   });
+  });
+</script>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+   $('#imageOne').change(function(e){
+   var reader = new FileReader();
+   reader.onload=function(e){
+    $('#showImageOne').attr('src',e.target.result);
+   } 
+   reader.readAsDataURL(e.target.files['0']);
+   });
+  });
+</script> --}}
+
+
+
+
+
+
+
 <!-------Show password------>
  <script type="text/javascript"> 
   function Function() {
@@ -287,7 +321,7 @@ $setting=DB::table('setting_information')->first();
 		</script>
 
 		<!----text editor  script --------->
-		<script src="{{url('public/backend')}}/assets/vendor/summernote/summernote-bs4.min.js"></script>
+		<script src="{{asset('backend')}}/assets/vendor/summernote/summernote-bs4.min.js"></script>
 		 <script>
 		  $(document).ready(function() {
 		  $('#summernote').summernote({
@@ -309,6 +343,7 @@ $setting=DB::table('setting_information')->first();
 		  });
 		  });
 		 </script>
+
 		 <script>
 		  $(document).ready(function() {
 		  $('#aboutsummernote').summernote({

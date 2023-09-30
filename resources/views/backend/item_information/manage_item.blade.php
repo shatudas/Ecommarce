@@ -60,16 +60,16 @@
 
 									<td>
 										@if ($data->status==1)
-										<a href="{{ asset('iteminactive',$data->id)}} " class="btn btn-success">Active</a>
+										<a href="{{ route('iteminactive',$data->id)}} " class="btn btn-success">Active</a>
 										@else
-										<a href="{{ asset('itemactive',$data->id)}}" class="btn btn-danger">Inactive</a>
+										<a href="{{ route('itemactive',$data->id)}}" class="btn btn-danger">Inactive</a>
 										@endif
 									</td>
 
 									<td style="padding:0px;">
 										<div align="center" style="padding-left:0px; padding-top:4px;">
-											<a href="{{ asset('deleteitem',$data->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
-											<a href="{{ asset('edititem',$data->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
+											<a href="{{ route('deleteitem',$data->id)}}" class="btn btn-danger btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;" onclick="return confirm('delete data sure..')"><i class="ti-trash"></i></a>
+											<a href="{{ route('edititem',$data->id)}}" class="btn btn-info btn-sm" style="padding-left: 10px; padding-right: 10px; border-radius: 0px;"><i class="icon-eye
 												"></i></a>
 											</div>
 										</td>

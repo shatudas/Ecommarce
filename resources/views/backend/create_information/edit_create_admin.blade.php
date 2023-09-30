@@ -12,7 +12,7 @@
 		</ol>
 	</div>
 	<!--page title end-->
-	<form method="POST" action="{{ route('update_admin/'.$edit->id)}}" enctype="multipart/form-data">
+	<form method="POST" action="{{ route('update_admin',$edit->id)}}" enctype="multipart/form-data">
 		@csrf
 		<div class="container-fluid">
 			<div class="row">

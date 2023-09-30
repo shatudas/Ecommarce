@@ -56,7 +56,7 @@
 									<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
 										<div class="cat_menu_text">
 											<a href="{{route('/')}}">
-												<img src="{{ asset($setting->setting_image) }}" class="img-fluid" style="height:65px;" alt="">
+												<img src="{{ asset($setting->setting_image) }}" class="img-fluid" style="height:40px;" alt="">
 											</a>
 										</div>
 										<div class="cat_burger d-none d-lg-inline-block" id="cat_burger" >
@@ -142,7 +142,7 @@
 											</div>
 
 											<div class="col-5" align="center">
-												<ul class="standard_dropdown main_nav_dropdown" >
+												{{-- <ul class="standard_dropdown main_nav_dropdown" >
 													<li><a href="{{ route('blog') }}">Offer<i class="fas fa-chevron-down"></i></a></li>
 													<li><a href="{{ route('contact') }}">Contact<i class="fas fa-chevron-down"></i></a></li>
 													<li class="hassubs">
@@ -153,7 +153,7 @@
 															<li><a href="{{ route('blog') }}">Blog<i class="fas fa-chevron-down"></i></a></li>
 														</ul>
 													</li>
-												</ul>
+												</ul> --}}
 											</div>
 
 										</div>

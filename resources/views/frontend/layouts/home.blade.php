@@ -243,13 +243,13 @@ $products = DB::table('product_information')->where('item_id',$item_show->id)->f
 				@endforeach
 				@endif
 
-				<div class="p-2 col-lg-2 col-md-3 col-sm-4 col-6" style="background:#fff; border: 3px #f4f4f4  solid; align:center; ">
+				{{-- <div class="p-2 col-lg-2 col-md-3 col-sm-4 col-6" style="background:#fff; border: 3px #f4f4f4  solid; align:center; ">
 					<a href="#" style="text-decoration:none">
 						<center style="padding:3px;">
 							<button class="btn btn-danger">View&nbsp;<i class="fa fa-arrow-right" aria-hidden="true"></i></button>
 						</center>
 					</a>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>
