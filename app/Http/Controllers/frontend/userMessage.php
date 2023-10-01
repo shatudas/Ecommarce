@@ -55,10 +55,6 @@ public function message_updatemethod(Request $id,$req){
 
 $prodata=DB::table('user_message')->where('id',$id)->first();
 
-$email = $id->email;
-$message = $id->message;
-$replay_meassage = $id->replay_meassage;
-$headers = "From:das.shatu2000@gmail.com";
 
 	$data= array(
 	 'email'            =>$id->email,

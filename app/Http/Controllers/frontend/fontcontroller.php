@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use DB;
 use Cart;
 Use Hash;
+use Illuminate\Support\Facades\Mail;
+
 
 
 class fontcontroller extends Controller
@@ -192,6 +194,18 @@ class fontcontroller extends Controller
 				'order_date'     =>date('d-m-y'),
 			);
 
+
+			$proData = array(
+    'name'  => $req->name,
+    'email' => $req->email,
+   );
+
+   Mail::send('frontend.mail.order_confirm', $proData, function ($message) use ($proData) {
+    $message->from(env('MAIL_FROM_ADDRESS'), 'E Mart');
+    $message->to($proData['email']);
+    $message->subject('Product Order Confirmation');
+   }); 
+
 			$shiping=DB::table('invoece')->insertGetId($Data);
 
 			$o_data=array();
@@ -204,7 +218,9 @@ class fontcontroller extends Controller
 				$o_data['price']=$prodata->price;
 				$o_data['total_price']=$prodata->subtotal;
 				DB::table('oder_detalis')->insert($o_data);
-			} 
+			}
+
+		
 		}
 
 		else
